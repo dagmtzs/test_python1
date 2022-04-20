@@ -2,27 +2,51 @@ import random
 import time
 
 def guess(x):
-    random_numer = random.randint(1, x)
-    guess = int(input("I'm thinking"))
-    for i in range (4):
+    random_number = random.randint(1, x)
+    print("I'm thinking")
+    for i in range (3):
         print(".", end ="")
-    for i in range(2):
-        print(f"Make your guess! You have {i+1} guesses left.")
+        time.sleep(0.5)
+    print(".")
+    for tries in range(3,1) :
+        print("I'm ready!")
+        
         while True:
             try:
-                answer=int(input())
+                guess = int(input(f"Make your guess! You have {tries} guesses left: "))
             except ValueError:
-                print(f"You entered an invalid value! Your guess should be a number between 1 and {x}")
+                print("You're supposed to enter a number!")
+                continue
+            if guess < 1 or guess > x :
+                print(f"Your guess should be a number between 1 and {x}!")
                 continue
             else:
-                break     
-
+                break
+        if tries == 1:
+            print("You have no tries left. Sorry! :(")
+            return 
+        elif guess == random_number :
+            print("Wow! You guessed right! Well done! :)")
+        else:
+            print("Mmm... Maybe you should try again.")
 
 print("This is 'Guess a Number'")
-limit = input("Write your limit number: ")
+
+while True:
+    try:
+        limit = int(input("Pick an upper limit number: "))
+    except ValueError:
+        print("You're supposed to enter a number!")
+        continue
+    if limit < 1 or limit > 65535 :
+        print(f"Your guess should be a number between 1 and 65535!")
+        continue
+    else:
+        break
+
+# limit = 5
 
 print(f"You'll guess a number between 1 and {limit}. Ready?")
-time.sleep(2)
-input("Press [enter] to continue")
+time.sleep(1)
 
 guess(limit)
