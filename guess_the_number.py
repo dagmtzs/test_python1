@@ -41,8 +41,6 @@ while True:
     else:
         break
 
-# limit = 5
-
 print(f"I'll pick a number between 1 and {limit}, you'll guess. Are you ready?")
 time.sleep(1)
 
