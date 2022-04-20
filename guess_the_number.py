@@ -3,11 +3,11 @@ import time
 
 def guess(x):
     random_number = random.randint(1, x)
-    print("I'm thinking")
-    for i in range (3):
-        print(".", end ="")
-        time.sleep(0.5)
-    print(".")
+    # print("I'm thinking")
+    # for i in range (3):
+    #     print(".", end ="")
+    #     time.sleep(0.5)
+    # print(".")
     for tries in range(3,1) :
         print("I'm ready!")
         
